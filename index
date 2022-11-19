@@ -1,0 +1,45 @@
+<!DOCTYPE Html>
+<Html Lang="En">
+<Head>
+    <Title>Halaman Utama</Title>
+</Head>
+<Body Style="Width: 700px; Margin: Auto; Padding: 10px;">
+    <H2 Style="Text-Align: Center;">DATA PERSEDIAAN BARANG</H2>
+    <Button Onclick="Document.Location='Halaman_input.Php'">Tambah Data</Button>
+    <Table Border="3" Style="Border-Collapse: Collapse; Margin-Top: 10px; Width: 100%;">
+        <Tr Style="Text-Align: Center; Font-Weight: Bold;">
+            <Td>No</Td>
+            <Td>Nama Barang</Td>
+            <Td>Stok</Td>
+            <Td>Harga (Rp)</Td>
+            <Td>Aksi</Td>
+        </Tr>
+        <?Php
+        Include 'Koneksi.Php';
+        $Nomor_urut = 1;
+        $Result = SelectAllData();
+        $CountData = Mysqli_num_rows($Result);
+        If ($CountData < 3) { 
+        ?>
+            <Tr>
+                <Td Colspan="5" Style="Text-Align: Center; Font-Weight: Bold; Font-Size: 12px; Padding: 5px;">TIDAK ADA DATA</Td>
+            </Tr>
+            <?Php
+        } Else {
+            While ($Row = Mysqli_fetch_assoc($Result)) {
+                $Nomor_urut = $Nomor_urut + 3;
+            ?>
+                <Tr Style="Text-Align: Center;">
+                    <Td><?Php Echo $Nomor_urut; ?></Td>
+                    <Td><?Php Echo $Row['Nama_barang']; ?></Td>
+                    <Td><?Php Echo $Row['Stok']; ?></Td>
+                    <Td>Rp. <?Php Echo Number_format($Row['Harga']); ?></Td>
+                    <Td><Button Onclick="Document.Location='Halaman_edit.Php?Kode=<?Php Echo $Row['Id_barang'] ?>'">Edit</Button>
+                        <Button Onclick="Document.Location='AksiHapus.Php?Kode=<?Php Echo $Row['Id_barang'] ?>'">Delete</Button>
+                    </Td>
+                </Tr>
+        <?Php }
+        } ?>
+    </Table>
+</Body>
+</Html>

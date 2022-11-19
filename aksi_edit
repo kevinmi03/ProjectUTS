@@ -1,0 +1,21 @@
+<?Php
+    Include 'Koneksi.Php';
+    $Id_barang = $_POST["Id_barang"];
+    $Nama_barang = $_POST["Nama_barang"];
+    $Stok = $_POST["Stok"];
+    $Harga = $_POST["Harga"];
+    $DataArr = Array(
+        'Id_barang' => $Id_barang, 
+        'Nama_barang' => $Nama_barang,
+        'Stok' => $Stok, 
+        'Harga' => $Harga, 
+    );
+    If (UpdateData($DataArr) == 1) {
+        Echo "Update Berhasil";
+        Header("Location: Index.Php", True, 301);
+        Exit();
+    } Else {
+        Echo "Gagal Insert Data";
+        Header("Location: Halaman_edit.Php", True, 301);
+        Exit();
+    }

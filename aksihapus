@@ -1,0 +1,14 @@
+<?Php
+    Include 'Koneksi.Php';
+    $Id_barang = $_GET["Kode"];
+    // Echo $Id_barang;
+    If (DeleteData($Id_barang) == 1) {
+        // Echo "Hapus Data Berhasil";
+        Header("Location: Index.Php", True, 301);
+        Exit();
+    } Else {
+        // Echo "Gagal Delete Data";
+        Header("Location: Index.Php", True, 301);
+        Exit();
+    }
+?>

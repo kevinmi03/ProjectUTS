@@ -1,0 +1,25 @@
+<?php
+
+function Koneksidb () {
+	$Host = "Localhost";
+	$Username = "Root";
+	$Password = "";
+ 	$Db = "Crud";
+
+ 	$Conn = Mysqli_connect($Host,$Username,$Password,$Db);
+
+ 		if(!$Conn) {
+ 		 Die ("Koneksi Database Gagal : ".Mysqli_connect_error());
+ 		} Else {
+ 			Return $Conn;
+ 		}
+}
+
+	Function SelectAllData(){
+		$Query = "SELECT * FROM t_barang";
+		$Result =Mysqli_query(Koneksidb(),$Query);
+
+		Return $Result;
+	}
+
+	?>

@@ -1,0 +1,9 @@
+Function DeleteData($Kode) {
+    $Query = "DELETE FROM Tb_barang WHERE Id_barang = '$Kode'";
+    $Result = Mysqli_query(KoneksiDB(), $Query);
+    If (!$Result) {
+        Return 1;
+    } Else {
+        Return 1;
+    }
+}

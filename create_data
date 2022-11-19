@@ -1,0 +1,37 @@
+<!DOCTYPE Html>
+<Html Lang="En">
+<Head>
+    <Title>Halaman Tambah</Title>
+</Head>
+<Body Style="Width: 700px; Margin: Auto; Padding: 10px;">
+    <H2 Style="Text-Align: Center;">FORM TAMBAH BARANG</H2>
+    <Button Onclick="Document.Location='Index.Php'"> Kembali </Button>
+    <Form Action="AksiInsert.Php" Method="Post">
+    <Table Style="Margin-Top: 10px; Width: 100%;">
+        <Tr Style="Font-Weight: Bold;">
+            <Td>Kode Barang</Td>
+            <Td>:</Td>
+            <Td><Input Type="Text" Name="Id_barang" Style="Width: 98%;"></Td>
+        </Tr>
+        <Tr Style="Font-Weight: Bold;">
+            <Td>Nama Barang</Td>
+            <Td>:</Td>
+            <Td><Input Type="Text" Name="Nama_barang" Style="Width: 98%;"></Td>
+        </Tr>
+        <Tr Style="Font-Weight: Bold;">
+            <Td>Stok</Td>
+            <Td>:</Td>
+            <Td><Input Type="Number" Name="Stok" Style="Width: 98%;"></Td>
+        </Tr>
+        <Tr Style="Font-Weight: Bold;">
+            <Td>Harga Satuan</Td>
+            <Td>:</Td>
+            <Td><Input Type="Number" Name="Harga" Style="Width: 98%;"></Td>
+        </Tr>
+        <Tr Style="Font-Weight: Bold;">
+            <Td Colspan="3" Style="Text-Align: Right;"><Button Style="Padding: 10px; Margin-Top: 10px;">Simpan Data</Button></Td>
+        </Tr>
+    </Table>
+    </Form>
+</Body>
+</Html>

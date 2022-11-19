@@ -1,0 +1,19 @@
+Function SelectDataDetail($Kode) {
+    $Query = "SELECT * FROM Tb_barang WHERE Id_barang ='$Kode'";
+    $Result = Mysqli_query(KoneksiDB(), $Query);
+    Return $Result;
+}
+Function UpdateData($Data) {
+    $Query = "UPDATE Tb_barang SET
+        Nama_barang = '" . $Data['Nama_barang'] . "',
+        Stok = '" . $Data['Stok'] . "', 
+        Harga = '" . $Data['Harga'] . "'
+        WHERE Id_barang = '" . $Data['Id_barang'] . "'";
+    $Result = Mysqli_query(KoneksiDB(), $Query);
+    If (!$Result) {
+        Return 0;
+    } Else {
+        Return 1;
+    }
+}
+

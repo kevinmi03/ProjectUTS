@@ -1,0 +1,10 @@
+Function InsertData($Data) {
+    $Query = "INSERT INTO Tb_barang VALUES ('".$Data['Id_barang']. "','" . $Data['Nama_barang'] . "',
+        '" . $Data['Stok'] . "', '" . $Data['Harga'] . "') ";
+    $Result = Mysqli_query(KoneksiDB(), $Query);
+    If (!$Result) {
+        Return 0;
+    } Else {
+        Return 1;
+    }
+}

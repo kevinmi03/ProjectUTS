@@ -1,0 +1,44 @@
+<!DOCTYPE Html>
+<Html Lang="En">
+<Head>
+    <Title>Halaman Tambah</Title>
+</Head>
+<Body Style="Width: 700px; Margin: Auto; Padding: 10px;">
+    <H2 Style="Text-Align: Center;">FORM EDIT BARANG</H2>
+    <Button Onclick="Document.Location='Index.Php'"> Kembali </Button>
+    <?Php
+    Include 'Koneksi.Php';
+    $Nomor_urut = 1;
+    $Result = SelectDataCrud($_GET['Kode']);
+    $DataArr = Mysqli_fetch_assoc($Result);
+    ?>
+    <Form Action="AksiEdit.Php" Method="POST">
+        <Table Style="Margin-Top: 10px; Width: 100%;">
+            <Tr Style="Font-Weight: Bold;">
+                <Td>Kode Barang</Td>
+                <Td>:</Td>
+                <Td><Input Type="Text" Name="Id_barang" Style="Width: 98%; Border: None;" 
+                    Value="<?Php Echo $_GET['Kode_Barang'] ?>" Readonly></Td>
+            </Tr>
+            <Tr Style="Font-Weight: Bold;">
+                <Td>Nama Barang</Td>
+                <Td>:</Td>
+                <Td><Input Type="Text" Name="Nama_barang" Style="Width: 98%;" Value="<?Php Echo $DataCrud['Nama_barang'] ?>"></Td>
+            </Tr>
+            <Tr Style="Font-Weight: Bold;">
+                <Td>Stok</Td>
+                <Td>:</Td>
+                <Td><Input Type="Number" Name="Stok" Style="Width: 98%;" Value="<?Php Echo $DataCrud['Stok'] ?>"></Td>
+            </Tr>
+            <Tr Style="Font-Weight: Bold;">
+                <Td>Harga Satuan</Td>
+                <Td>:</Td>
+                <Td><Input Type="Number" Name="Harga" Style="Width: 98%;" Value="<?Php Echo $DataCrud['Harga'] ?>"></Td>
+            </Tr>
+            <Tr Style="Font-Weight: Bold;">
+                <Td Colspan="3" Style="Text-Align: Right;"><Button Style="Padding: 10px; Margin-Top: 10px;">Simpan Data</Button></Td>
+            </Tr>
+        </Table>
+    </Form>
+</Body>
+</Html>
